@@ -6,7 +6,7 @@
 /*   By: erpascua <erpascua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 03:44:05 by erpascua          #+#    #+#             */
-/*   Updated: 2026/02/16 04:13:32 by erpascua         ###   ########.fr       */
+/*   Updated: 2026/02/16 14:34:30 by erpascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,6 @@
 
 Bureaucrat::Bureaucrat(): _name("?"), _grade(150)
 {
-	if (_grade < 1)
-		throw GradeTooHighException();
-	if (_grade > 150)
-		throw GradeTooLowException();
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, unsigned int grade): _name(name), _grade(grade)
@@ -38,12 +34,12 @@ Bureaucrat::Bureaucrat(const Bureaucrat &cpy): _name(cpy._name), _grade(cpy._gra
 {
 }
 
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat& cpy)
-{
-	this->_name = &cpy._name;
-	this->_grade = &cpy._grade;
-	return (*this);
-}
+// Bureaucrat& Bureaucrat::operator=(const Bureaucrat& cpy)
+// {
+// 	this->_name = &cpy._name;
+// 	this->_grade = &cpy._grade;
+// 	return (*this);
+// }
 
 Bureaucrat::~Bureaucrat()
 {
@@ -94,10 +90,18 @@ void	Bureaucrat::decrement()
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	std::cerr	<< Bureaucrat::getName() <<	" bureaucrat grade " << getGrade() << "\n";
+	// std::cerr	<< getName() <<	" bureaucrat grade " << getGrade() << "\n";
+	return ("Grade Too High Exception");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	std::cerr	<< Bureaucrat::getName() <<	" bureaucrat grade " << getGrade() << "\n";
+	// std::cerr	<< getName() <<	" bureaucrat grade " << getGrade() << "\n";
+	return ("Grade Too Low Exception");
 }
+
+/* ************************************************************************** */
+// 																			  //
+// 							 		 EXCEPTION								  //
+//																	 		  //
+/* ************************************************************************** */

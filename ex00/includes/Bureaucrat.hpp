@@ -6,7 +6,7 @@
 /*   By: erpascua <erpascua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 03:04:30 by erpascua          #+#    #+#             */
-/*   Updated: 2026/02/16 03:43:06 by erpascua         ###   ########.fr       */
+/*   Updated: 2026/02/16 12:04:34 by erpascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 
 class Bureaucrat
 {
-	protected:
+	private:
 		const std::string	_name;
 		unsigned int		_grade;
-
+		
 	public:
 		// OCF
 		Bureaucrat();
