@@ -6,7 +6,7 @@
 /*   By: erpascua <erpascua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 03:44:05 by erpascua          #+#    #+#             */
-/*   Updated: 2026/02/16 14:34:30 by erpascua         ###   ########.fr       */
+/*   Updated: 2026/02/16 22:35:05 by erpascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ Bureaucrat::Bureaucrat(const Bureaucrat &cpy): _name(cpy._name), _grade(cpy._gra
 {
 }
 
-// Bureaucrat& Bureaucrat::operator=(const Bureaucrat& cpy)
-// {
-// 	this->_name = &cpy._name;
-// 	this->_grade = &cpy._grade;
-// 	return (*this);
-// }
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& cpy)
+{
+	if (this != &cpy)
+		this->_grade = cpy._grade;
+	return (*this);
+}
 
 Bureaucrat::~Bureaucrat()
 {
@@ -102,6 +102,12 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 
 /* ************************************************************************** */
 // 																			  //
-// 							 		 EXCEPTION								  //
-//																	 		  //
+// 										   OPERATOR OVERLOAD									  //
+//																		 						  //
 /* ************************************************************************** */
+
+std::ostream&	operator<<(std::ostream& os, const Bureaucrat& rhs)
+{
+	os << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << ".";
+	return (os);
+}
