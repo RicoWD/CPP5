@@ -6,15 +6,16 @@
 /*   By: erpascua <erpascua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 03:04:30 by erpascua          #+#    #+#             */
-/*   Updated: 2026/02/16 12:04:34 by erpascua         ###   ########.fr       */
+/*   Updated: 2026/02/18 19:20:41 by erpascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <exception>
-#include <iostream>
-#include <string>
+# include <exception>
+# include <iostream>
+# include <string>
+# include "Form.hpp"
 
 class Bureaucrat
 {
@@ -33,10 +34,11 @@ class Bureaucrat
 		// Getters
 		std::string		getName(void) const;
 		unsigned int	getGrade(void) const;
-		
+
 		// Member Functions
-		void	increment(void);
-		void	decrement(void);
+		void			increment(void);
+		void			decrement(void);
+		void			signForm(Form& form);
 
 		// Exceptions
 		class GradeTooHighException : public std::exception

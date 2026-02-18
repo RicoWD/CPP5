@@ -6,7 +6,7 @@
 /*   By: erpascua <erpascua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 03:44:05 by erpascua          #+#    #+#             */
-/*   Updated: 2026/02/16 22:35:05 by erpascua         ###   ########.fr       */
+/*   Updated: 2026/02/18 18:58:03 by erpascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,20 @@ void	Bureaucrat::decrement()
 	this->_grade++;
 }
 
+void	Bureaucrat::signForm(Form& form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << _name << " signed " << form.getName() << "\n";
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << _name << " couldn't sign " << form.getName() << " because " << e.what() << "\n";
+	}
+	
+}
+
 /* ************************************************************************** */
 // 																			  //
 // 							 		 EXCEPTION								  //
@@ -90,20 +104,18 @@ void	Bureaucrat::decrement()
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	// std::cerr	<< getName() <<	" bureaucrat grade " << getGrade() << "\n";
 	return ("Grade Too High Exception");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	// std::cerr	<< getName() <<	" bureaucrat grade " << getGrade() << "\n";
 	return ("Grade Too Low Exception");
 }
 
 /* ************************************************************************** */
 // 																			  //
-// 										   OPERATOR OVERLOAD									  //
-//																		 						  //
+// 								OPERATOR OVERLOAD							  //
+//																			  //
 /* ************************************************************************** */
 
 std::ostream&	operator<<(std::ostream& os, const Bureaucrat& rhs)
