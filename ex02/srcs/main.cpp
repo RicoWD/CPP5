@@ -6,7 +6,7 @@
 /*   By: erpascua <erpascua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:03:36 by erpascua          #+#    #+#             */
-/*   Updated: 2026/02/19 19:16:44 by erpascua         ###   ########.fr       */
+/*   Updated: 2026/02/19 20:09:06 by erpascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ int main()
 	std::cout << "=== VALID: Shrubbery Creation Form ===\n";
 	try
 	{
-		Bureaucrat 				florentMotte;
+		Bureaucrat 				florentMotte("Billy", 20);
 		ShrubberyCreationForm	fmotte("fmottefmotte");
+		fmotte.beSigned(florentMotte);
 		fmotte.execute(florentMotte);
 		std::cout << "Grade to sign: " << fmotte.getGradeToSign() << "\nGrade to exec: " << fmotte.getGradeToExecute() << "\n";
 	}
@@ -39,8 +40,9 @@ int main()
 	std::cout << "\n=== VALID: Robotomy Request Form ===\n";
 	try
 	{
-		Bureaucrat				guillaumePollastri;
+		Bureaucrat				guillaumePollastri("Billy", 20);
 		RobotomyRequestForm		gpollast("La Pollast");
+		gpollast.beSigned(guillaumePollastri);
 		gpollast.execute(guillaumePollastri);
 		std::cout << "Grade to sign: " << gpollast.getGradeToSign() << "\nGrade to exec: " << gpollast.getGradeToExecute() << "\n";
 	}
@@ -53,8 +55,9 @@ int main()
 	std::cout << "\n=== VALID: Presidential Pardon Form ===\n";
 	try
 	{
-		Bureaucrat				tomLorette;
+		Bureaucrat				tomLorette("Tommy", 5);
 		PresidentialPardonForm	tlorette("La Lorette");
+		tlorette.beSigned(tomLorette);
 		tlorette.execute(tomLorette);
 		std::cout << "Grade to sign: " << tlorette.getGradeToSign() << "\nGrade to exec: " << tlorette.getGradeToExecute() << "\n";
 	}
@@ -67,9 +70,10 @@ int main()
 	std::cout << "\n=== INVALID: Presidential Pardon Form ===\n";
 	try
 	{
-		Bureaucrat				benSuger;
+		Bureaucrat				benSuger("Benjy", 18);
 		PresidentialPardonForm	bSuger("La Lorette");
 	
+		bSuger.beSigned(benSuger);
 		bSuger.execute(benSuger);
 		std::cout << "Grade to sign: " << bSuger.getGradeToSign() << "\nGrade to exec: " << bSuger.getGradeToExecute() << "\n";
 	}

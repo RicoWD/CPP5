@@ -6,7 +6,7 @@
 /*   By: erpascua <erpascua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:51:51 by erpascua          #+#    #+#             */
-/*   Updated: 2026/02/19 17:54:23 by erpascua         ###   ########.fr       */
+/*   Updated: 2026/02/19 19:38:24 by erpascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,18 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor)
 {
-	(void)executor;
-	std::string fileNameTree = _target;
-	fileNameTree.append("_shrubbery");
-	std::ofstream w(fileNameTree.c_str());
-	if (w.is_open())
+	if (this->getIsSigned() == false)
+		throw AForm::NotSignedException(); 
+	if (executor.getGrade() <= this->getGradeToExecute())
+	{
+		std::string fileNameTree = _target;
+		fileNameTree.append("_shrubbery");
+		std::ofstream w(fileNameTree.c_str());
+		if (w.is_open())
 		w << TREE;
-	w.close();
-	std::cout << "File " << fileNameTree << "has been created\n";
+		w.close();
+		std::cout << "File " << fileNameTree << " has been created\n";
+	}
+	else
+		throw AForm::GradeTooLowException();
 }

@@ -6,7 +6,7 @@
 /*   By: erpascua <erpascua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:01:43 by erpascua          #+#    #+#             */
-/*   Updated: 2026/02/19 18:44:47 by erpascua         ###   ########.fr       */
+/*   Updated: 2026/02/19 19:36:11 by erpascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ class ShrubberyCreationForm: public AForm
 		std::string	_target;
 	    static const int _GRADE_SIGN = 145;
         static const int _GRADE_EXEC = 137;
-
-	public:
 
 	public:
 	// OCF
