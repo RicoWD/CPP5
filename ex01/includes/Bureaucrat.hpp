@@ -6,7 +6,7 @@
 /*   By: erpascua <erpascua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 03:04:30 by erpascua          #+#    #+#             */
-/*   Updated: 2026/02/18 19:20:41 by erpascua         ###   ########.fr       */
+/*   Updated: 2026/02/19 03:00:33 by erpascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,16 @@ class Bureaucrat
 		Bureaucrat& operator=(const Bureaucrat& cpy);
 		~Bureaucrat();
 
-		// Getters
+		// GETTERS
 		std::string		getName(void) const;
 		unsigned int	getGrade(void) const;
 
-		// Member Functions
+		// MEMBER FUNCTION
 		void			increment(void);
 		void			decrement(void);
 		void			signForm(Form& form);
 
-		// Exceptions
+		// EXCEPTIONS
 		class GradeTooHighException : public std::exception
 		{
 			public:

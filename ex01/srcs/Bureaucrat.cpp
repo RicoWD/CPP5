@@ -6,7 +6,7 @@
 /*   By: erpascua <erpascua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 03:44:05 by erpascua          #+#    #+#             */
-/*   Updated: 2026/02/18 18:58:03 by erpascua         ###   ########.fr       */
+/*   Updated: 2026/02/19 02:27:41 by erpascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,11 @@ void	Bureaucrat::decrement()
 
 void	Bureaucrat::signForm(Form& form)
 {
+	if (form.getIsSigned())
+	{
+		std::cout << _name << " cannot sign " << form.getName() << " because it's already signed\n";
+		return;
+	}
 	try
 	{
 		form.beSigned(*this);
@@ -104,12 +109,12 @@ void	Bureaucrat::signForm(Form& form)
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Grade Too High Exception");
+	return ("Bureaucrat: Grade Too High Exception");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Grade Too Low Exception");
+	return ("Bureaucrat: Grade Too Low Exception");
 }
 
 /* ************************************************************************** */
