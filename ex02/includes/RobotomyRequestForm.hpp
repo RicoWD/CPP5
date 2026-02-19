@@ -6,11 +6,14 @@
 /*   By: erpascua <erpascua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:23:10 by erpascua          #+#    #+#             */
-/*   Updated: 2026/02/19 15:05:23 by erpascua         ###   ########.fr       */
+/*   Updated: 2026/02/19 18:44:26 by erpascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AForm.hpp"
+#pragma once
+
+# include "AForm.hpp"
+# include "Bureaucrat.hpp"
 
 # include <cstdlib>
 # include <ctime>
@@ -31,12 +34,12 @@ class	RobotomyRequestForm: public AForm
 		~RobotomyRequestForm();
 		
 	// MEMBER FUNCTIONS
-		void	execute(Bureaucrat& executor);
+		void	execute(Bureaucrat const & executor);
 
 	// EXCEPTION
 	class RobotomyFailed: public std::exception
 	{
 		public:
-			const char* what() const throw();
+			const char* what() const throw() {return "Robotomy Failed Exception";};
 	};
 };

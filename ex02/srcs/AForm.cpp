@@ -6,7 +6,7 @@
 /*   By: erpascua <erpascua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 11:02:24 by erpascua          #+#    #+#             */
-/*   Updated: 2026/02/19 11:59:48 by erpascua         ###   ########.fr       */
+/*   Updated: 2026/02/19 16:44:02 by erpascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,6 @@ void	AForm::beSigned(Bureaucrat& bureaucrat)
 	if (bureaucrat.getGrade() > _gradeToSign)
 		throw AForm::GradeTooLowException();
 	_isSigned = true;
-}
-
-void	AForm::apply(Bureaucrat& executor)
-{
-	
 }
 
 

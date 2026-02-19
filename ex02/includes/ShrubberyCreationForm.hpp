@@ -6,11 +6,15 @@
 /*   By: erpascua <erpascua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:01:43 by erpascua          #+#    #+#             */
-/*   Updated: 2026/02/19 15:02:10 by erpascua         ###   ########.fr       */
+/*   Updated: 2026/02/19 18:44:47 by erpascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AForm.hpp"
+#pragma once
+
+# include "AForm.hpp"
+# include "Bureaucrat.hpp"
+
 #include <iostream>
 #include <fstream>
 
@@ -44,5 +48,5 @@ class ShrubberyCreationForm: public AForm
 		~ShrubberyCreationForm();
 		
 	// MEMBER FUNCTIONS
-		void	execute(Bureaucrat& executor);
+		void	execute(Bureaucrat const & executor);
 };

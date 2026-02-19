@@ -6,7 +6,7 @@
 /*   By: erpascua <erpascua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 20:08:44 by erpascua          #+#    #+#             */
-/*   Updated: 2026/02/19 14:33:41 by erpascua         ###   ########.fr       */
+/*   Updated: 2026/02/19 18:05:38 by erpascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ class AForm
 		
 		// MEMBER FUNCTION
 		void			beSigned(Bureaucrat& bureaucrat);
-		virtual void	execute(Bureaucrat& executor) = 0;
+		virtual void	execute(Bureaucrat const & executor) = 0;
 
 		// EXCEPTIONS
 		class GradeTooHighException: public std::exception
