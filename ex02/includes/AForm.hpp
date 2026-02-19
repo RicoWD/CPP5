@@ -6,7 +6,7 @@
 /*   By: erpascua <erpascua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 20:08:44 by erpascua          #+#    #+#             */
-/*   Updated: 2026/02/19 11:59:15 by erpascua         ###   ########.fr       */
+/*   Updated: 2026/02/19 14:33:41 by erpascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,6 @@
 # include <string>
 # include <iostream> 
 # include <exception>
-
-# include "PresidentialPardonForm.hpp"
-# include "RobotomyRequestForm.hpp"
-# include "ShrubberyCreationForm.hpp"
 
 class Bureaucrat;
 
@@ -46,7 +42,7 @@ class AForm
 		
 		// MEMBER FUNCTION
 		void			beSigned(Bureaucrat& bureaucrat);
-		virtual void	apply(Bureaucrat& executor) = 0;
+		virtual void	execute(Bureaucrat& executor) = 0;
 
 		// EXCEPTIONS
 		class GradeTooHighException: public std::exception
@@ -63,7 +59,7 @@ class AForm
 		{
 			public:
 				const char* what() const throw();
-		}
+		};
 };
 
 // Overload

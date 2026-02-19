@@ -6,7 +6,7 @@
 #    By: erpascua <erpascua@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/21 15:23:43 by erpascua          #+#    #+#              #
-#    Updated: 2026/02/11 02:02:00 by erpascua         ###   ########.fr        #
+#    Updated: 2026/02/19 14:44:44 by erpascua         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,6 @@ SRCS =	srcs/main.cpp \
 		srcs/ShrubberyCreationForm.cpp \
 		srcs/RobotomyRequestForm.cpp \
 		srcs/PresidentialPardonForm.cpp \
-		srcs/Intern.cpp
 
 OBJ_DIR = obj
 OBJ = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)

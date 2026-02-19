@@ -6,7 +6,7 @@
 /*   By: erpascua <erpascua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:30:37 by erpascua          #+#    #+#             */
-/*   Updated: 2026/02/19 11:30:56 by erpascua         ###   ########.fr       */
+/*   Updated: 2026/02/19 15:02:56 by erpascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 class PresidentialPardonForm: public AForm
 {
+	private:
+	    static const int _GRADE_SIGN = 25;
+        static const int _GRADE_EXEC = 5;
+
 	public:
 	// OCF
 		PresidentialPardonForm();
@@ -23,6 +27,5 @@ class PresidentialPardonForm: public AForm
 		~PresidentialPardonForm();
 		
 	// MEMBER FUNCTIONS
-		void	createFile(void);
-		void	createASCIITree(void);
+		void	execute(Bureaucrat& executor);
 };
