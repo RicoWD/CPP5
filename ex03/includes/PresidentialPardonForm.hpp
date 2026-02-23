@@ -32,5 +32,5 @@ class PresidentialPardonForm: public AForm
 		~PresidentialPardonForm();
 		
 	// MEMBER FUNCTIONS
-		void	execute(Bureaucrat const & executor);
+		void	execute(Bureaucrat const & executor) const;
 };

@@ -34,7 +34,7 @@ class	RobotomyRequestForm: public AForm
 		~RobotomyRequestForm();
 		
 	// MEMBER FUNCTIONS
-		void	execute(Bureaucrat const & executor);
+		void	execute(Bureaucrat const & executor) const;
 
 	// EXCEPTION
 	class RobotomyFailed: public std::exception

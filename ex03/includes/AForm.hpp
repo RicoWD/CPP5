@@ -32,7 +32,7 @@ class AForm
 		AForm(const std::string name, unsigned int gradeToSign, unsigned int gradeToExecute);
 		AForm(const AForm& cpy);
 		AForm& operator=(const AForm& cpy);
-		~AForm();
+		virtual ~AForm();
 		
 		// GETTERS
 		const std::string	getName(void) const;
@@ -41,8 +41,8 @@ class AForm
 		unsigned int		getGradeToExecute(void) const;
 		
 		// MEMBER FUNCTION
-		void			beSigned(Bureaucrat& bureaucrat);
-		virtual void	execute(Bureaucrat const & executor) = 0;
+		void			beSigned(const Bureaucrat& bureaucrat);
+		virtual void	execute(Bureaucrat const & executor) const = 0;
 
 		// EXCEPTIONS
 		class GradeTooHighException: public std::exception

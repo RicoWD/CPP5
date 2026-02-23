@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
+#include <stdexcept>
 
 /* ************************************************************************** */
 // 																			  //
@@ -18,28 +19,27 @@
 //																	 		  //
 /* ************************************************************************** */
 
-ShrubberyCreationForm::ShrubberyCreationForm()
-{
-}
+ShrubberyCreationForm::ShrubberyCreationForm(): AForm("ShrubberyCreationForm", _GRADE_SIGN, _GRADE_EXEC), _target("default")
+{}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string target): AForm("ShrubberyCreationForm",  _GRADE_SIGN, _GRADE_EXEC), _target(target)
-{
-}
+{}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& cpy): AForm("ShrubberyCreationForm",  _GRADE_SIGN, _GRADE_EXEC), _target(cpy._target)
-{
-}
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& cpy): AForm(cpy), _target(cpy._target)
+{}
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& cpy)
 {
 	if (this != &cpy)
+	{
+		AForm::operator=(cpy);
 		_target = cpy._target;
+	}
 	return (*this);
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
-{
-}
+{}
 
 /* ************************************************************************** */
 // 																			  //
@@ -47,20 +47,20 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 //																	 		  //
 /* ************************************************************************** */
 
-void	ShrubberyCreationForm::execute(Bureaucrat const & executor)
+void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	if (this->getIsSigned() == false)
 		throw AForm::NotSignedException(); 
-	if (executor.getGrade() <= this->getGradeToExecute())
-	{
-		std::string fileNameTree = _target;
-		fileNameTree.append("_shrubbery");
-		std::ofstream w(fileNameTree.c_str());
-		if (w.is_open())
-		w << TREE;
-		w.close();
-		std::cout << "File " << fileNameTree << " has been created\n";
-	}
-	else
+	if (executor.getGrade() > this->getGradeToExecute())
 		throw AForm::GradeTooLowException();
+
+	std::string fileNameTree = _target;
+	fileNameTree.append("_shrubbery");
+	std::ofstream w(fileNameTree.c_str());
+	if (!w.is_open())
+		throw std::runtime_error("ShrubberyCreationForm: failed to open output file");
+
+	w << TREE;
+	w.close();
+	std::cout << "File " << fileNameTree << " has been created\n";
 }

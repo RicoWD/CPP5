@@ -6,7 +6,7 @@
 /*   By: erpascua <erpascua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 17:40:29 by erpascua          #+#    #+#             */
-/*   Updated: 2026/02/19 18:15:43 by erpascua         ###   ########.fr       */
+/*   Updated: 2026/02/23 05:30:31 by erpascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,27 @@
 //																	 		  //
 /* ************************************************************************** */
 
-PresidentialPardonForm::PresidentialPardonForm()
-{
-}
+PresidentialPardonForm::PresidentialPardonForm(): AForm("PresidentialPardonForm", _GRADE_SIGN, _GRADE_EXEC), _target("default")
+{}
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string target): AForm("PresidentialPardonForm", _GRADE_SIGN, _GRADE_EXEC), _target(target)
-{
-}
+{}
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& cpy): AForm("PresidentialPardonForm", _GRADE_SIGN, _GRADE_EXEC), _target(cpy._target)
-{
-}
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& cpy): AForm(cpy), _target(cpy._target)
+{}
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& cpy)
 {
 	if (this != &cpy)
+	{
+		AForm::operator=(cpy);
 		_target = cpy._target;
+	}
 	return (*this);
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()
-{
-}
+{}
 
 /* ************************************************************************** */
 // 																			  //
@@ -47,12 +46,11 @@ PresidentialPardonForm::~PresidentialPardonForm()
 //																	 		  //
 /* ************************************************************************** */
 
-void	PresidentialPardonForm::execute(Bureaucrat const & executor)
+void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	if (this->getIsSigned() == false)
 		throw AForm::NotSignedException();
-	if (executor.getGrade() <= this->getGradeToExecute())
-		std::cout << _target << " has been pardoned by Zaphod Beeblebrox\n";
-	else
+	if (executor.getGrade() > this->getGradeToExecute())
 		throw AForm::GradeTooLowException();
+	std::cout << _target << " has been pardoned by Zaphod Beeblebrox\n";
 }

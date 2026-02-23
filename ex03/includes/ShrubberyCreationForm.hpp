@@ -46,5 +46,5 @@ class ShrubberyCreationForm: public AForm
 		~ShrubberyCreationForm();
 		
 	// MEMBER FUNCTIONS
-		void	execute(Bureaucrat const & executor);
+		void	execute(Bureaucrat const & executor) const;
 };

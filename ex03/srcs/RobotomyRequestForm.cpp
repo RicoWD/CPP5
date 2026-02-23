@@ -18,28 +18,27 @@
 //																	 		  //
 /* ************************************************************************** */
 
-RobotomyRequestForm::RobotomyRequestForm()
-{
-}
+RobotomyRequestForm::RobotomyRequestForm(): AForm("RobotomyRequestForm", _GRADE_SIGN, _GRADE_EXEC), _target("default")
+{}
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string target): AForm("RobotomyRequestForm", _GRADE_SIGN, _GRADE_EXEC), _target(target)
-{
-}
+{}
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& cpy): AForm("RobotomyRequestForm", _GRADE_SIGN, _GRADE_EXEC), _target(cpy._target)
-{
-}
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& cpy): AForm(cpy), _target(cpy._target)
+{}
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& cpy)
 {
 	if (this != &cpy)
+	{
+		AForm::operator=(cpy);
 		_target = cpy._target;
+	}
 	return (*this);
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
-{
-}
+{}
 
 /* ************************************************************************** */
 // 																			  //
@@ -47,17 +46,15 @@ RobotomyRequestForm::~RobotomyRequestForm()
 //																	 		  //
 /* ************************************************************************** */
 
-void	RobotomyRequestForm::execute(Bureaucrat const & executor)
+void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
 	if (this->getIsSigned() == false)
 		throw AForm::NotSignedException();
-	if (executor.getGrade() <= this->getGradeToExecute())
-	{
-		if (std::rand() % 2 == 0)
-			std::cout << _target << " has been robotomized succesfully !\n";
-		else
-			std::cout << "Ow... the robotomy of " << _target << " has failed\n";
-	}
-	else
+	if (executor.getGrade() > this->getGradeToExecute())
 		throw AForm::GradeTooLowException();
+
+	if (std::rand() % 2 == 0)
+		std::cout << _target << " has been robotomized succesfully !\n";
+	else
+		std::cout << "Ow... the robotomy of " << _target << " has failed\n";
 }
