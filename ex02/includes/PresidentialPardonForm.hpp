@@ -6,7 +6,7 @@
 /*   By: erpascua <erpascua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:30:37 by erpascua          #+#    #+#             */
-/*   Updated: 2026/02/19 18:44:36 by erpascua         ###   ########.fr       */
+/*   Updated: 2026/02/23 05:22:24 by erpascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ class PresidentialPardonForm: public AForm
 		~PresidentialPardonForm();
 		
 	// MEMBER FUNCTIONS
-		void	execute(Bureaucrat const & executor);
+		void	execute(Bureaucrat const & executor) const;
 };

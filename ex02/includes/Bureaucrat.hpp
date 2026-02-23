@@ -6,7 +6,7 @@
 /*   By: erpascua <erpascua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 03:04:30 by erpascua          #+#    #+#             */
-/*   Updated: 2026/02/19 14:34:18 by erpascua         ###   ########.fr       */
+/*   Updated: 2026/02/23 05:21:59 by erpascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ class Bureaucrat
 		void			increment(void);
 		void			decrement(void);
 		void			signForm(AForm& form);
+		void			executeForm(AForm const & form) const;
 
 		// EXCEPTIONS
 		class GradeTooHighException : public std::exception

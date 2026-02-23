@@ -6,7 +6,7 @@
 /*   By: erpascua <erpascua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:01:43 by erpascua          #+#    #+#             */
-/*   Updated: 2026/02/19 19:36:11 by erpascua         ###   ########.fr       */
+/*   Updated: 2026/02/23 05:23:03 by erpascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,5 @@ class ShrubberyCreationForm: public AForm
 		~ShrubberyCreationForm();
 		
 	// MEMBER FUNCTIONS
-		void	execute(Bureaucrat const & executor);
+		void	execute(Bureaucrat const & executor) const;
 };

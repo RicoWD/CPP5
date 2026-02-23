@@ -6,7 +6,7 @@
 /*   By: erpascua <erpascua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 11:23:10 by erpascua          #+#    #+#             */
-/*   Updated: 2026/02/19 18:44:26 by erpascua         ###   ########.fr       */
+/*   Updated: 2026/02/23 05:22:51 by erpascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class	RobotomyRequestForm: public AForm
 		~RobotomyRequestForm();
 		
 	// MEMBER FUNCTIONS
-		void	execute(Bureaucrat const & executor);
+		void	execute(Bureaucrat const & executor) const;
 
 	// EXCEPTION
 	class RobotomyFailed: public std::exception
