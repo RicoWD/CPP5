@@ -6,7 +6,7 @@
 /*   By: erpascua <erpascua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 20:08:44 by erpascua          #+#    #+#             */
-/*   Updated: 2026/02/19 18:05:38 by erpascua         ###   ########.fr       */
+/*   Updated: 2026/02/23 05:12:09 by erpascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class AForm
 		AForm(const std::string name, unsigned int gradeToSign, unsigned int gradeToExecute);
 		AForm(const AForm& cpy);
 		AForm& operator=(const AForm& cpy);
-		~AForm();
+		virtual ~AForm();
 		
 		// GETTERS
 		const std::string	getName(void) const;
