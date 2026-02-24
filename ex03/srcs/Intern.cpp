@@ -6,7 +6,7 @@
 /*   By: erpascua <erpascua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 16:44:25 by erpascua          #+#    #+#             */
-/*   Updated: 2026/02/23 04:47:59 by erpascua         ###   ########.fr       */
+/*   Updated: 2026/02/24 11:06:04 by erpascua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,23 +55,15 @@ AForm *Intern::makeForm(std::string formName, std::string formTarget)
 	{
 		if (formName == formNames[i])
 		{
+			std::cout << "Intern creates " << formName << "\n";	
 			switch (i)
 			{
 				case 0:
-				{
-					std::cout << "Intern creates " << formName << "\n";	
 					return (new RobotomyRequestForm(formTarget));
-				}
 				case 1:
-				{
-					std::cout << "Intern creates " << formName << "\n";
 					return (new PresidentialPardonForm(formTarget));
-				}
 				case 2:
-				{
-					std::cout << "Intern creates " << formName << "\n";
 					return (new ShrubberyCreationForm(formTarget));
-				}
 			}
 		}
 	}
